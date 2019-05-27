@@ -24,7 +24,6 @@ import { HeaderComponent } from './layout/navigation/header/header.component';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    NavigationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
