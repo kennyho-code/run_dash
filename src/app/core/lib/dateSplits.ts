@@ -144,38 +144,77 @@ let workouts : Workout[] =
         }
     ]
 
-function monthSplit(workouts: Workout[]){
 
+function getStartMonthDate(date){
+    return `${date.getMonth()} ${date.getFullYear()}`;
 
 }
 
 function getStartWeekDate(date){
     date.setDate(date.getDate() - date.getDay())
     return `${date.getMonth()} ${date.getDate()} ${date.getFullYear()}`;
-
 }
 
-function weekSplit(workouts: Workout[]){
-    let weekSplits = {}
+function getStartYearDate(date){
+    date.setDate(date.getDate() - date.getDay())
+    return `${date.getFullYear()}`;
+}
+
+function getDateSplits(workouts, timeRange){
+    
+    let getTimeRangeStr = {
+        'week': getStartWeekDate,
+        'month': getStartMonthDate,
+        'year': getStartYearDate
+    }[timeRange]
+
+    let splits = {}
     for(let workout of workouts){
         let d = new Date(workout.creationdate)
-
-        let startDate = getStartWeekDate(d)
-        if(startDate in weekSplits){
-            weekSplits[startDate].push(workout)
+        let startDate = getTimeRangeStr(d)
+        if(startDate in splits){
+            splits[startDate].push(workout)
         }
         else{
-            weekSplits[startDate] = [workout]
+            splits[startDate] = [workout]
         }
     }
-    return weekSplits
-}
-
-function yearSplit(){
-
+    return splits
 }
 
 
-let weeksplits = weekSplit(workouts)
+function transformSplits(splits){
+    let transformedSplits = [];
+    for(let datekey in splits){
+        let rows = splits[datekey];
+        let totalDistance = 0.0;
+        let totalDuration = 0.0;
+        let totalEnergyBurned = 0.0;
+        for(let row of rows){
+            console.log(row['totalDistance']);
+            totalDistance += row['totaldistance'];
+            totalDuration += row['duration']
+            totalEnergyBurned += row['totalenergyburned']
+        }
+        let transformedRow = {
+            'dateKey': datekey,
+            'avgDistance': totalDistance / rows.length,
+            'avgDuration': totalDuration / rows.length,
+            'avgEnergyBurned': totalEnergyBurned / rows.length
+        }
+        transformedSplits.push(transformedRow);
+    }
+    return transformedSplits;
 
-console.log(weeksplits);
+}
+
+
+
+
+let weeksplits = getDateSplits(workouts, 'week')
+// let monthsplits = getDateSplits(workouts, 'month')
+
+// console.log(Object.keys(weeksplits));
+// console.log(Object.keys(monthsplits));
+
+console.log(transformSplits(weeksplits));

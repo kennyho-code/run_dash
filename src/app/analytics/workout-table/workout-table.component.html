@@ -1,5 +1,17 @@
 
-<app-workout-table-filter (dateSelected)="(onDateSelected($event))" ></app-workout-table-filter>
+<mat-grid-list class="top-grid" height=2px cols="2" rowHeight="40px">
+    <mat-grid-tile>
+        <app-workout-table-filter (dateSelected)="(onDateSelected($event))" ></app-workout-table-filter>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <app-workout-table-splits></app-workout-table-splits>
+    </mat-grid-tile>
+  </mat-grid-list> 
+
+
+
 
 <table mat-table [dataSource]="workouts" class="mat-elevation-z8">
 

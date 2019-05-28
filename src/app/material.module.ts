@@ -8,6 +8,9 @@ import { MatButtonModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule } from '@angular/material'
+import { MatOptionModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material';
 
 
 @NgModule({
@@ -21,10 +24,10 @@ import {MatInputModule } from '@angular/material'
         MatTableModule,
         MatDatepickerModule,
         MatFormFieldModule,
-        MatInputModule
-        
-
-
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatGridListModule
     ],
     exports: [
         MatSidenavModule,
@@ -35,7 +38,10 @@ import {MatInputModule } from '@angular/material'
         MatTableModule,
         MatDatepickerModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatGridListModule
         
 
     ],

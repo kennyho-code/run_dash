@@ -16,7 +16,8 @@ import {GlobalServices} from './core/services/global.services';
 import {HttpClientModule} from '@angular/common/http';
 import { WorkoutTableFilterComponent } from './analytics/workout-table/workout-table-filter/workout-table-filter.component';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { WorkoutTableSplitsComponent } from './analytics/workout-table/workout-table-splits/workout-table-splits.component'
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     AnalyticsComponent,
     WorkoutTableComponent,
     WorkoutTableFilterComponent,
+    WorkoutTableSplitsComponent,
   ],
   imports: [
     BrowserModule,

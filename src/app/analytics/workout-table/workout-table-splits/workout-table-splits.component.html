@@ -1,0 +1,9 @@
+<form class="example-container" [formGroup]="options" [style.fontSize.px]="getFontSize()">
+    <mat-form-field [color]="options.value.color">
+      <mat-select placeholder="Time Split Interval" formControlName="color">
+        <mat-option value="primary">Week</mat-option>
+        <mat-option value="accent">Month</mat-option>
+        <mat-option value="warn">Year</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
