@@ -14,6 +14,9 @@ import {WorkoutTableComponent } from './analytics/workout-table/workout-table.co
 import {WorkoutServices} from './core/services/workout.services';
 import {GlobalServices} from './core/services/global.services';
 import {HttpClientModule} from '@angular/common/http';
+import { WorkoutTableFilterComponent } from './analytics/workout-table/workout-table-filter/workout-table-filter.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -24,11 +27,14 @@ import {HttpClientModule} from '@angular/common/http';
     SideNavigationComponent,
     HeaderComponent,
     AnalyticsComponent,
-    WorkoutTableComponent
+    WorkoutTableComponent,
+    WorkoutTableFilterComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,

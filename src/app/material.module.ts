@@ -5,6 +5,10 @@ import { MatIconModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
+import {MatInputModule } from '@angular/material'
+
 
 @NgModule({
     declarations: [],
@@ -14,7 +18,11 @@ import { MatButtonModule } from '@angular/material';
         MatListModule,
         MatToolbarModule,
         MatButtonModule,
-        MatTableModule
+        MatTableModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule
+        
 
 
     ],
@@ -24,7 +32,11 @@ import { MatButtonModule } from '@angular/material';
         MatListModule,
         MatToolbarModule,
         MatButtonModule,
-        MatTableModule
+        MatTableModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule
+        
 
     ],
     providers: []
