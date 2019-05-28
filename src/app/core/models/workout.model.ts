@@ -8,7 +8,7 @@ export class Workout{
     totaldistanceunit: string;
     duration : number;
     durationunit: string;
-    totalenergyburned: string;
+    totalenergyburned: number;
     totalenergyburnedunit: string;
     workoutactivitytype: string;
 

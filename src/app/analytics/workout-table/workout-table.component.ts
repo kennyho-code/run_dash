@@ -75,10 +75,8 @@ export class WorkoutTableComponent implements OnInit {
   }
 
   onDateSelected(e){
-    console.log(e);
-    console.log(e.month());
-    console.log(e.year());
     this.workouts = this.originalWorkouts;
+    console.log(this.workouts);
     this.workouts = this.workouts.filter(w=> this.isSameMonthYear(w.creationdate, e.month(), e.year()));
   }
 
