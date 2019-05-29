@@ -1,5 +1,5 @@
 
-<mat-grid-list class="top-grid" height=2px cols="2" rowHeight="40px">
+<mat-grid-list class="top-grid" height=2px cols="2" rowHeight="70px">
     <mat-grid-tile>
         <app-workout-table-filter (dateSelected)="(onDateSelected($event))" ></app-workout-table-filter>
     </mat-grid-tile>
@@ -8,33 +8,27 @@
     </mat-grid-tile>
   </mat-grid-list> 
 
-
-
-
 <table mat-table [dataSource]="workouts" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
+  <!-- Creation Date Column -->
   <ng-container matColumnDef="creationdate">
     <th mat-header-cell *matHeaderCellDef> Creation Date </th>
     <td mat-cell *matCellDef="let workout"> {{workout.creationdate}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- Duration Column -->
   <ng-container matColumnDef="duration">
     <th mat-header-cell *matHeaderCellDef> Duration (min) </th>
     <td mat-cell *matCellDef="let workout"> {{workout.duration | number: '1.1-1' }} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+  <!-- Distance Column -->
   <ng-container matColumnDef="totaldistance">
     <th mat-header-cell *matHeaderCellDef> Distance (mi) </th>
     <td mat-cell *matCellDef="let workout"> {{workout.totaldistance | number: '1.1-1'}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- Energy Burned Column -->
   <ng-container matColumnDef="totalenergyburned">
     <th mat-header-cell *matHeaderCellDef> Energy Burned (kcal) </th>
     <td mat-cell *matCellDef="let workout"> {{workout.totalenergyburned | number: '1.1-1'}} </td>
