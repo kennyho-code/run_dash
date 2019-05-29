@@ -1,4 +1,5 @@
 import { Workout } from '../models/workout.model';
+import { Injectable } from '@angular/core';
 
 let workouts : Workout[] = 
     [
@@ -145,76 +146,76 @@ let workouts : Workout[] =
     ]
 
 
-function getStartMonthDate(date){
-    return `${date.getMonth()} ${date.getFullYear()}`;
+@Injectable()
+export class DateSplits{
+    getStartMonthDate(date){
+        return `${date.getMonth()} ${date.getFullYear()}`;
 
-}
-
-function getStartWeekDate(date){
-    date.setDate(date.getDate() - date.getDay())
-    return `${date.getMonth()} ${date.getDate()} ${date.getFullYear()}`;
-}
-
-function getStartYearDate(date){
-    date.setDate(date.getDate() - date.getDay())
-    return `${date.getFullYear()}`;
-}
-
-function getDateSplits(workouts, timeRange){
-    
-    let getTimeRangeStr = {
-        'week': getStartWeekDate,
-        'month': getStartMonthDate,
-        'year': getStartYearDate
-    }[timeRange]
-
-    let splits = {}
-    for(let workout of workouts){
-        let d = new Date(workout.creationdate)
-        let startDate = getTimeRangeStr(d)
-        if(startDate in splits){
-            splits[startDate].push(workout)
-        }
-        else{
-            splits[startDate] = [workout]
-        }
     }
-    return splits
-}
 
-
-function transformSplits(splits){
-    let transformedSplits = [];
-    for(let datekey in splits){
-        let rows = splits[datekey];
-        let totalDistance = 0.0;
-        let totalDuration = 0.0;
-        let totalEnergyBurned = 0.0;
-        for(let row of rows){
-            console.log(row['totalDistance']);
-            totalDistance += row['totaldistance'];
-            totalDuration += row['duration']
-            totalEnergyBurned += row['totalenergyburned']
-        }
-        let transformedRow = {
-            'dateKey': datekey,
-            'avgDistance': totalDistance / rows.length,
-            'avgDuration': totalDuration / rows.length,
-            'avgEnergyBurned': totalEnergyBurned / rows.length
-        }
-        transformedSplits.push(transformedRow);
+    getStartWeekDate(date){
+        date.setDate(date.getDate() - date.getDay())
+        return `${date.getMonth()} ${date.getDate()} ${date.getFullYear()}`;
     }
-    return transformedSplits;
 
+    getStartYearDate(date){
+        date.setDate(date.getDate() - date.getDay())
+        return `${date.getFullYear()}`;
+    }
+
+    getDateSplits(workouts, timeRange){
+        
+        let getTimeRangeStr = {
+            'week': this.getStartWeekDate,
+            'month': this.getStartMonthDate,
+            'year': this.getStartYearDate
+        }[timeRange]
+
+        let splits = {}
+        for(let workout of workouts){
+            let d = new Date(workout.creationdate)
+            let startDate = getTimeRangeStr(d)
+            if(startDate in splits){
+                splits[startDate].push(workout)
+            }
+            else{
+                splits[startDate] = [workout]
+            }
+        }
+        return splits
+    }
+
+
+    transformSplits(splits){
+        let transformedSplits = [];
+        for(let datekey in splits){
+            let rows = splits[datekey];
+            let totalDistance = 0.0;
+            let totalDuration = 0.0;
+            let totalEnergyBurned = 0.0;
+            for(let row of rows){
+                totalDistance += row['totaldistance'];
+                totalDuration += row['duration']
+                totalEnergyBurned += row['totalenergyburned']
+            }
+            let transformedRow = {
+                'creationdate': datekey,
+                'totaldistance': totalDistance / rows.length,
+                'duration': totalDuration / rows.length,
+                'totalenergyburned': totalEnergyBurned / rows.length
+            }
+            transformedSplits.push(transformedRow);
+        }
+        return transformedSplits;
+    }
 }
 
 
 
-
-let weeksplits = getDateSplits(workouts, 'week')
+//let weeksplits = getDateSplits(workouts, 'week')
 // let monthsplits = getDateSplits(workouts, 'month')
 
 // console.log(Object.keys(weeksplits));
 // console.log(Object.keys(monthsplits));
 
-console.log(transformSplits(weeksplits));
+//console.log(transformSplits(weeksplits));

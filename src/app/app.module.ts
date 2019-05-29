@@ -18,6 +18,7 @@ import { WorkoutTableFilterComponent } from './analytics/workout-table/workout-t
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WorkoutTableSplitsComponent } from './analytics/workout-table/workout-table-splits/workout-table-splits.component'
+import { DateSplits } from './core/lib/dateSplits';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { WorkoutTableSplitsComponent } from './analytics/workout-table/workout-t
   ],
   providers: [
     GlobalServices,
-    WorkoutServices
+    WorkoutServices,
+    DateSplits
   ],
   bootstrap: [AppComponent]
 })

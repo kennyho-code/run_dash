@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
@@ -10,6 +10,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class WorkoutTableSplitsComponent implements OnInit {
 
   options: FormGroup;
+
+  @Output()
+  splitsEmitter: EventEmitter<String> = new EventEmitter<String>();
 
   constructor(fb: FormBuilder) {
     this.options = fb.group({
@@ -23,6 +26,10 @@ export class WorkoutTableSplitsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClickSplits(timeInterval){
+    this.splitsEmitter.emit(timeInterval);
   }
 
 }

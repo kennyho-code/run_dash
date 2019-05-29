@@ -3,6 +3,7 @@ import { WorkoutServices } from 'src/app/core/services/workout.services';
 import { Workout } from '../../core/models/workout.model'
 import {WorkoutTableFilterComponent} from './workout-table-filter/workout-table-filter.component';
 import { months } from 'moment';
+import {  DateSplits } from '../../core/lib/dateSplits'
 
 
 // export interface PeriodicElement {
@@ -48,7 +49,7 @@ export class WorkoutTableComponent implements OnInit {
 
   workouts: Workout[] = [];
   originalWorkouts: Workout[] = [];
-  constructor(private workoutService: WorkoutServices) { }
+  constructor(private workoutService: WorkoutServices, private dateSplit: DateSplits) { }
 
   ngOnInit() {
     this.workoutService.workoutsChanged.subscribe(
@@ -78,6 +79,12 @@ export class WorkoutTableComponent implements OnInit {
     this.workouts = this.originalWorkouts;
     console.log(this.workouts);
     this.workouts = this.workouts.filter(w=> this.isSameMonthYear(w.creationdate, e.month(), e.year()));
+  }
+
+  onSplitsSelected(e){
+    this.workouts = this.originalWorkouts;
+    let splits = this.dateSplit.getDateSplits(this.workouts, e)
+    this.workouts = this.dateSplit.transformSplits(splits)
   }
 
 }
