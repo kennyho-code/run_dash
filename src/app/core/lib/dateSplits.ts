@@ -69,4 +69,23 @@ export class DateSplits{
         }
         return transformedSplits;
     }
+
+    isSameMonthYear(dateStr, month, year){
+        let d = new Date(dateStr);
+        return d.getMonth() == month && d.getFullYear() == year;
+      }
+
+    getDefaultWorkouts(workouts){
+        let defaultWorkouts: Workout[] = []
+        let current_date = new Date();
+        workouts = workouts.filter(w=> this.isSameMonthYear(w.creationdate, current_date.getMonth(), current_date.getFullYear()));
+        for(let workout of workouts){
+        if(this.isSameMonthYear(workout.creationdate, current_date.getMonth(), current_date.getFullYear())){
+            let newDate = new Date(workout['creationdate']);
+            workout['creationdate'] = this.getDayDate(newDate);
+            defaultWorkouts.push(workout)
+            }
+        }
+        return defaultWorkouts;
+    }
 }

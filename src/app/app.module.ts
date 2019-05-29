@@ -22,6 +22,9 @@ import { DateSplits } from './core/lib/dateSplits';
 import { WorkoutChartsComponent } from './analytics/workout-charts/workout-charts.component';
 import { ChartsModule } from 'ng2-charts';
 import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-chart.component';
+import { WorkoutLineMileChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-mile-chart/workout-line-mile-chart.component';
+import { WorkoutLineDurationChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-duration-chart/workout-line-duration-chart.component';
+import { WorkoutLineEnergyBurnedChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-energy-burned-chart/workout-line-energy-burned-chart.component';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-li
     WorkoutTableSplitsComponent,
     WorkoutChartsComponent,
     WorkoutLineChartComponent,
+    WorkoutLineMileChartComponent,
+    WorkoutLineDurationChartComponent,
+    WorkoutLineEnergyBurnedChartComponent,
   ],
   imports: [
     BrowserModule,

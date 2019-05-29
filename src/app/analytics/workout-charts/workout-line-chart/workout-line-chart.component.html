@@ -1,7 +1,7 @@
-<div class="flex">
+<!-- <div class="flex">
   <div class="flex-item">
     <div style="display: block;">
-    <canvas baseChart width="400" height="400"
+    <canvas baseChart width="200" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -12,7 +12,9 @@
                 (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
-  <div class="flex-item">
+</div> -->
+
+  <!-- <div class="flex-item">
     <table class="table table-responsive table-condensed">
       <tr>
         <th *ngFor="let label of lineChartLabels">{{label}}</th>
@@ -26,4 +28,33 @@
     <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
     <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
     <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
-  </div>
+  </div> -->
+
+
+  <!-- <mat-grid-list cols="1" rowHeight="1:2">
+    <mat-grid-tile>
+
+        <div class="flex">
+        <div class="flex-item">
+            <div style="display: block;">
+            <canvas baseChart width="400" height="400"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+          </div>
+    </mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list> -->
+
+  <app-workout-line-mile-chart></app-workout-line-mile-chart>
+  <app-workout-line-duration-chart></app-workout-line-duration-chart>
+  <app-workout-line-energy-burned-chart></app-workout-line-energy-burned-chart>
