@@ -20,8 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WorkoutTableSplitsComponent } from './analytics/workout-table/workout-table-splits/workout-table-splits.component'
 import { DateSplits } from './core/lib/dateSplits';
 import { WorkoutChartsComponent } from './analytics/workout-charts/workout-charts.component';
-import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-chart.component';
 
 
 @NgModule({

@@ -12,8 +12,6 @@ import {  DateSplits } from '../../core/lib/dateSplits'
 })
 export class WorkoutTableComponent implements OnInit {
 
-  @ViewChild(WorkoutTableFilterComponent)
-  private workoutTableFilterComponent: WorkoutTableFilterComponent;
   displayedColumns: string[] = ['creationdate', 'duration', 'totaldistance', 'totalenergyburned'];
   workouts: Workout[] = [];
   originalWorkouts: Workout[] = [];
