@@ -10,6 +10,7 @@ import { DateSplits } from 'src/app/core/lib/dateSplits';
   styleUrls: ['./workout-line-mile-chart.component.css']
 })
 export class WorkoutLineMileChartComponent implements OnInit {
+  //hello
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'miles' },
   ];
