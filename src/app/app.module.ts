@@ -19,6 +19,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WorkoutTableSplitsComponent } from './analytics/workout-table/workout-table-splits/workout-table-splits.component'
 import { DateSplits } from './core/lib/dateSplits';
+import { WorkoutChartsComponent } from './analytics/workout-charts/workout-charts.component';
+import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -32,6 +35,8 @@ import { DateSplits } from './core/lib/dateSplits';
     WorkoutTableComponent,
     WorkoutTableFilterComponent,
     WorkoutTableSplitsComponent,
+    WorkoutChartsComponent,
+    WorkoutLineChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { DateSplits } from './core/lib/dateSplits';
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,
+    ChartsModule
   ],
   providers: [
     GlobalServices,
