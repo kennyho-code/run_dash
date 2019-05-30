@@ -17,7 +17,7 @@ export class WorkoutLineDurationChartComponent implements OnInit {
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: true,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
