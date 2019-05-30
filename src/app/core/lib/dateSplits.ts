@@ -24,6 +24,7 @@ export class DateSplits{
 
     getDateSplits(workouts, timeRange){
         let getTimeRangeStr = {
+            'day': this.getDayDate,
             'week': this.getStartWeekDate,
             'month': this.getStartMonthDate,
             'year': this.getStartYearDate
@@ -85,4 +86,28 @@ export class DateSplits{
         }
         return defaultWorkouts;
     }
+
+    getAverages(workouts, splitType){
+        workouts = this.getDefaultWorkouts(workouts);
+        let splits = this.getDateSplits(workouts, splitType);
+        let transformedSplits = this.transformSplits(splits);
+        let avgDistance = 0;
+        let avgDuration = 0;
+        let avgEnergyBurned = 0
+        for(let row of transformedSplits){
+            avgDistance += row['totaldistance'];
+            avgDuration += row['duration'];
+            avgEnergyBurned += row['totalenergyburned'];
+        }
+        let avgRow = {
+            'avgDistance': avgDistance / transformedSplits.length,
+            'avgDuration': avgDuration / transformedSplits.length,
+            'avgEnergyBurned': avgEnergyBurned / transformedSplits.length,
+            'avgPace': avgDuration / avgDistance
+        }
+        return avgRow;
+
+
+    }
+
 }

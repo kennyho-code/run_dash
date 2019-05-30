@@ -1,0 +1,55 @@
+<mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar><mat-icon class="icon">directions_run</mat-icon></div>
+              <mat-card-title> {{averages.avgDistance | number: "1.2-2" }}</mat-card-title>
+              <mat-card-subtitle>Miles</mat-card-subtitle>
+            </mat-card-header>
+
+          </mat-card>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar><mat-icon class="icon">access_time</mat-icon></div>
+              <mat-card-title> {{averages.avgDuration | number: "1.2-2" }} </mat-card-title>
+              <mat-card-subtitle>minutes</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+
+        
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar><mat-icon class="icon">flash_on</mat-icon></div>
+              <mat-card-title> {{averages.avgEnergyBurned | number: "1.2-2" }} </mat-card-title>
+              <mat-card-subtitle>kcal</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+
+
+
+
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar><mat-icon class="icon">watch</mat-icon></div>
+              <mat-card-title> {{averages.avgPace | number: "1.2-2" }}</mat-card-title>
+              <mat-card-subtitle>min/mi</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+
+
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
