@@ -17,8 +17,8 @@ export class WorkoutLineEnergyBurnedChartComponent implements OnInit {
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: false,
-    maintainAspectRatio: false,
+    responsive: true,
+    maintainAspectRatio: true,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
