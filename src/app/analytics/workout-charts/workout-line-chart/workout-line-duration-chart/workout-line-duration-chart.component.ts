@@ -14,8 +14,6 @@ export class WorkoutLineDurationChartComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'minutes' },
-    // { data: [65, 59, 80, 81, 56, 55, 40], label: 'min' },
-    // { data: [65, 59, 80, 81, 56, 55, 40], label: 'kcal' }
   ];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {

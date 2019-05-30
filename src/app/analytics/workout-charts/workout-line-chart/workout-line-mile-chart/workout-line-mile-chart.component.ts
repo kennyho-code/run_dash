@@ -84,9 +84,6 @@ export class WorkoutLineMileChartComponent implements OnInit {
 
     let dates = [];
     let distances = [];
-    let durations = [];
-    let energyBurneds = [];
-
     for(let workout of this.workouts){
       dates.push(workout['creationdate']);
       distances.push(workout['totaldistance']);
