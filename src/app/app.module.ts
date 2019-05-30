@@ -25,6 +25,7 @@ import { WorkoutLineChartComponent } from './analytics/workout-charts/workout-li
 import { WorkoutLineMileChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-mile-chart/workout-line-mile-chart.component';
 import { WorkoutLineDurationChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-duration-chart/workout-line-duration-chart.component';
 import { WorkoutLineEnergyBurnedChartComponent } from './analytics/workout-charts/workout-line-chart/workout-line-energy-burned-chart/workout-line-energy-burned-chart.component';
+import { WorkoutLineChartFilterComponent } from './analytics/workout-charts/workout-line-chart/workout-line-chart-filter/workout-line-chart-filter.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { WorkoutLineEnergyBurnedChartComponent } from './analytics/workout-chart
     WorkoutLineMileChartComponent,
     WorkoutLineDurationChartComponent,
     WorkoutLineEnergyBurnedChartComponent,
+    WorkoutLineChartFilterComponent,
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,7 @@ export class WorkoutLineMileChartComponent implements OnInit {
   public lineChartColors: Color[] = [
     { // red
       backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'pink',
+      borderColor: 'white',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: 'green',
       pointHoverBackgroundColor: '#fff',
@@ -71,14 +71,21 @@ export class WorkoutLineMileChartComponent implements OnInit {
       (workouts: Workout[]) => {
         this.workouts = workouts;
         this.originalworkouts = this.workouts;
-        this.getDefaultWorkouts();
+        this.setDefaultWorkouts();
 
         
       }
     )
+
+    this.workoutService.workoutLineChartSplitTypeChanged.subscribe(
+      (splitType: string)=>{
+        this.setSplitWorkouts(splitType);
+
+      }
+    )
   }
 
-  getDefaultWorkouts(){
+  setDefaultWorkouts(){
     this.workouts = this.originalworkouts;
     this.workouts = this.dateSplit.getDefaultWorkouts(this.workouts);
 
@@ -90,6 +97,29 @@ export class WorkoutLineMileChartComponent implements OnInit {
     }
     this.lineChartLabels = dates;
     this.lineChartData[0].data = distances;
+    this.chart.update();
+  }
+
+  setSplitWorkouts(splitType){
+    if(splitType == 'day'){
+      this.setDefaultWorkouts();
+      return
+    }
+
+    this.workouts = this.originalworkouts;
+    let splits = this.dateSplit.getDateSplits(this.workouts, splitType)
+    this.workouts = this.dateSplit.transformSplits(splits)
+
+    let dates = [];
+    let durations = [];
+
+    for(let workout of this.workouts){
+      durations.push(workout['totaldistance']);
+      dates.push(workout['creationdate']);
+
+    }
+    this.lineChartLabels = dates;
+    this.lineChartData[0].data = durations;
     this.chart.update();
   }
 

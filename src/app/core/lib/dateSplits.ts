@@ -64,9 +64,6 @@ export class DateSplits{
             }
             transformedSplits.push(transformedRow);
         }
-        if(transformedSplits[0].creationdate.length == 4){
-            return transformedSplits.reverse();
-        }
         return transformedSplits;
     }
 

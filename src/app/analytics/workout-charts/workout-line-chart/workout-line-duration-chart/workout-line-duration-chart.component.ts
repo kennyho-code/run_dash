@@ -50,7 +50,7 @@ export class WorkoutLineDurationChartComponent implements OnInit {
   public lineChartColors: Color[] = [
     {
       backgroundColor: 'green',
-      borderColor: 'pink',
+      borderColor: 'white',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: 'green',
       pointHoverBackgroundColor: '#fff',
@@ -72,14 +72,21 @@ export class WorkoutLineDurationChartComponent implements OnInit {
       (workouts: Workout[]) => {
         this.workouts = workouts;
         this.originalworkouts = this.workouts;
-        this.getDefaultWorkouts();
+        this.setDefaultWorkouts();
 
         
       }
     )
+
+    this.workoutService.workoutLineChartSplitTypeChanged.subscribe(
+      (splitType: string)=>{
+        this.setSplitWorkouts(splitType);
+
+      }
+    )
   }
 
-  getDefaultWorkouts(){
+  setDefaultWorkouts(){
     this.workouts = this.originalworkouts;
     this.workouts = this.dateSplit.getDefaultWorkouts(this.workouts);
 
@@ -95,5 +102,30 @@ export class WorkoutLineDurationChartComponent implements OnInit {
     this.lineChartData[0].data = durations;
     this.chart.update();
   }
+
+  setSplitWorkouts(splitType){
+    if(splitType == 'day'){
+      this.setDefaultWorkouts();
+      return
+    }
+
+    this.workouts = this.originalworkouts;
+    let splits = this.dateSplit.getDateSplits(this.workouts, splitType)
+    this.workouts = this.dateSplit.transformSplits(splits)
+
+    let dates = [];
+    let durations = [];
+
+    for(let workout of this.workouts){
+      durations.push(workout['duration']);
+      dates.push(workout['creationdate']);
+
+    }
+    this.lineChartLabels = dates;
+    this.lineChartData[0].data = durations;
+    this.chart.update();
+  }
+
+
 
 }

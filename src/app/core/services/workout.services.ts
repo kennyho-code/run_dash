@@ -12,6 +12,10 @@ export class WorkoutServices{
     workouts: Workout[] = [];
     workoutsChanged = new Subject<Workout[]>();
 
+    workoutLineChartSplitType: string = 'day';
+    workoutLineChartSplitTypeChanged = new Subject<string>();
+    
+
     getWorkouts(){
         const url = `${this.baseUrl}workouts`
         this.http.get(url).subscribe(
@@ -20,5 +24,11 @@ export class WorkoutServices{
                 this.workoutsChanged.next(this.workouts);
             }
         )
+    }
+
+    setWorklineLineChartSplitType(splitType){
+        this.workoutLineChartSplitType = splitType;
+        this.workoutLineChartSplitTypeChanged.next(this.workoutLineChartSplitType);
+
     }
 }
