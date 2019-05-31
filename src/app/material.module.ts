@@ -14,6 +14,7 @@ import { MatGridListModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material';
 import { MatButtonToggleModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
+import { MatExpansionModule} from '@angular/material';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { MatCardModule } from '@angular/material';
         MatGridListModule,
         MatTabsModule,
         MatButtonToggleModule,
-        MatCardModule
+        MatCardModule,
+        MatExpansionModule
+        
     ],
     exports: [
         MatSidenavModule,
@@ -50,7 +53,8 @@ import { MatCardModule } from '@angular/material';
         MatTabsModule,
         MatGridListModule,
         MatButtonToggleModule,
-        MatCardModule
+        MatCardModule,
+        MatExpansionModule
 
     ],
     providers: []

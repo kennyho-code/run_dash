@@ -1,0 +1,35 @@
+<h4> Last Progress</h4>
+
+<mat-accordion>
+  <!-- distance -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title [style.color]="getColor(lastDifferences.distance)">
+          {{getSign(lastDifferences.distance)}} {{lastDifferences.distance | number: "1.2-2"}} miles
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    You have ran {{lastPercentages.distance | number: "1.2-2"}} % more miles than last week.
+  </mat-expansion-panel>
+
+  <!-- duration -->
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                      (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title [style.color]="getColor(lastDifferences.duration)"> 
+          {{getSign(lastDifferences.duration)}} {{lastDifferences.duration | number: "1.2-2" }} minutes
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>You have ran {{lastPercentages.duration | number: "1.2-2"}} % more minutes than last week.</p>
+  </mat-expansion-panel>
+  
+  <!-- energy -->
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                      (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title [style.color]="getColor(lastDifferences.energyburned)"> 
+          {{getSign(lastDifferences.energyburned)}} {{lastDifferences.energyburned | number: "1.2-2"}} kcal
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>You have burned {{lastPercentages.energyburned | number: "1.2-2"}} % more kcal than last week.</p>
+  </mat-expansion-panel>
+</mat-accordion>

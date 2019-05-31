@@ -29,6 +29,7 @@ import { WorkoutLineChartFilterComponent } from './analytics/workout-charts/work
 import { WorkoutAnalysisComponent } from './analytics/workout-analysis/workout-analysis.component';
 import { WorkoutAnalysisAveragesComponent } from './analytics/workout-analysis/workout-analysis-averages/workout-analysis-averages.component';
 import { WorkoutAnalysisMileAverageComponent } from './analytics/workout-analysis/workout-analysis-averages/workout-analysis-mile-average/workout-analysis-mile-average.component';
+import { WorkoutLastProgressComponent } from './analytics/workout-analysis/workout-last-progress/workout-last-progress.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { WorkoutAnalysisMileAverageComponent } from './analytics/workout-analysi
     WorkoutAnalysisComponent,
     WorkoutAnalysisAveragesComponent,
     WorkoutAnalysisMileAverageComponent,
+    WorkoutLastProgressComponent,
   ],
   imports: [
     BrowserModule,
