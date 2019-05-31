@@ -12,8 +12,7 @@
   </mat-expansion-panel>
 
   <!-- duration -->
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                      (closed)="panelOpenState = false">
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title [style.color]="getColor(lastDifferences.duration)"> 
           {{getSign(lastDifferences.duration)}} {{lastDifferences.duration | number: "1.2-2" }} minutes
@@ -21,10 +20,9 @@
     </mat-expansion-panel-header>
     <p>You have ran {{lastPercentages.duration | number: "1.2-2"}} % more minutes than last week.</p>
   </mat-expansion-panel>
-  
+
   <!-- energy -->
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                      (closed)="panelOpenState = false">
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title [style.color]="getColor(lastDifferences.energyburned)"> 
           {{getSign(lastDifferences.energyburned)}} {{lastDifferences.energyburned | number: "1.2-2"}} kcal
