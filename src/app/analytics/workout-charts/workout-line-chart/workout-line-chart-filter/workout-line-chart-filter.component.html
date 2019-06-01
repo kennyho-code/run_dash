@@ -1,5 +1,6 @@
-<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="day">
   <mat-button-toggle value="day" (click)="onSetWorkoutLineChartSplitType('day')">Day</mat-button-toggle>
+  <mat-button-toggle value="week" (click)="onSetWorkoutLineChartSplitType('week')">Week</mat-button-toggle>
   <mat-button-toggle value="momth " (click)="onSetWorkoutLineChartSplitType('month')">Month</mat-button-toggle>
-  <mat-button-toggle value="underline" (click)="onSetWorkoutLineChartSplitType('year')">Year</mat-button-toggle>
+  <mat-button-toggle value="year" (click)="onSetWorkoutLineChartSplitType('year')">Year</mat-button-toggle>
 </mat-button-toggle-group>

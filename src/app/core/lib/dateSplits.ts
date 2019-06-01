@@ -74,17 +74,12 @@ export class DateSplits{
       }
 
     getDefaultWorkouts(workouts){
-        let defaultWorkouts: Workout[] = []
-        let current_date = new Date();
-        workouts = workouts.filter(w=> this.isSameMonthYear(w.creationdate, current_date.getMonth(), current_date.getFullYear()));
+        workouts = workouts.slice(-30, workouts.length)
         for(let workout of workouts){
-        if(this.isSameMonthYear(workout.creationdate, current_date.getMonth(), current_date.getFullYear())){
             let newDate = new Date(workout['creationdate']);
             workout['creationdate'] = this.getDayDate(newDate);
-            defaultWorkouts.push(workout)
-            }
         }
-        return defaultWorkouts;
+        return workouts;
     }
 
     getAverages(workouts, splitType){
@@ -106,8 +101,16 @@ export class DateSplits{
             'avgPace': avgDuration / avgDistance
         }
         return avgRow;
-
-
     }
+
+    getTotalMiles(workouts){
+        let total = 0;
+        for(let workout of workouts){
+            total += workout['totaldistance']
+        }
+        return total;
+    }
+
+
 
 }

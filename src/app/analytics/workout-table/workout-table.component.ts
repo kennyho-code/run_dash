@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { WorkoutServices } from 'src/app/core/services/workout.services';
 import { Workout } from '../../core/models/workout.model'
-import {WorkoutTableFilterComponent} from './workout-table-filter/workout-table-filter.component';
 import {  DateSplits } from '../../core/lib/dateSplits'
 
 @Component({
@@ -29,19 +28,11 @@ export class WorkoutTableComponent implements OnInit {
 
   applyDefaultFilter(){
     this.workouts = this.originalWorkouts;
-    let current_date = new Date();
-    this.workouts = this.workouts.filter(w=> this.isSameMonthYear(w.creationdate, current_date.getMonth(), current_date.getFullYear()));
-    let defaultWorkouts: Workout[] = []
+    this.workouts = this.workouts.slice(-30, this.workouts.length);
     for(let workout of this.workouts){
-      if(this.isSameMonthYear(workout.creationdate, current_date.getMonth(), current_date.getFullYear())){
         let newDate = new Date(workout['creationdate']);
         workout['creationdate'] = this.dateSplit.getDayDate(newDate);
-        defaultWorkouts.push(workout)
-      }
     }
-
-    this.workouts = defaultWorkouts;
-    // this.workouts = this.workouts.map(w => "${w.creationdate.getMonth()}/${w.creationdate.getDate}/${w.creationdate.getYear()}");
   }
 
   isSameMonthYear(dateStr, month, year){
