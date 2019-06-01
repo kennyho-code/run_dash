@@ -1,19 +1,36 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Welcome</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+      <h4>Welcome To RunDash</h4>
+      <section>
+        <p><b>Purpose</b></p>
+        <p>
+          Somewhere in early May 2019, I decided that I wanted to run a <i>marathon</i>. Even though I was a complete beginner, there was a <i>lot of work</i> to be done in terms of training.
+          I run every morning to start my day, but I haven't set goals. My usual distance was about 2 or 3 miles everday; It was just that. There was no growth. I needed to progress.
+        </p>
+        <p>
+            There are a lot of variables such as soreness, fatigue, and injury that can affect the quality of a run. And if you are pushing yourself, its even more difficult to pinpoint on how to react.
+            Should I rest? Should I eat more? Is my form right? Should I longer? Faster? 
+        </p>
+        <p>
+          I've tried running apps such as Strava, RunKeeper, Apple Fitness, and Nike Run Club. They are all great in terms of keep tracking of your runs but I needed to extract more value from the data.
+          I needed to find another way to take control of my own data.
+        </p>
+        <p>
+          I decided to create my own web application. I wanted the data in my own hands. I wanted to see if there ways to <i>strategically implement tactics to reach my goal of running a marathon</i>. 
       </p>
+    </section>
+
+    <mat-divider></mat-divider>
+      <section>
+        <h4>Technologies</h4>
+        <p>The web application uses <a href="https://www.django-rest-framework.org/">Django Rest Framework</a> to serve my own <a href="https://www.apple.com/ios/health/">Apple Health Data</a>.
+        The front-end is created with <a href="">Angular</a>, <a href="">Material</a>, and <a href="">Ng-charts</a> for data visualization.</p>
+      </section>
+
+    <mat-divider></mat-divider>
+      <section>
+        <p style="padding-top: 10px"><i>Note: This is an ongoing project ... features and changes to the websites are likely as I get more ideas</i></p>
+      </section>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
   </mat-card>
