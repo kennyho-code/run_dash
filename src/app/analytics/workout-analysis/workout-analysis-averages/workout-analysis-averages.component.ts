@@ -28,10 +28,8 @@ export class WorkoutAnalysisAveragesComponent implements OnInit {
   }
 
   setDefaultAverage(){
-    console.log("hello");
     this.workouts = this.originalWorkouts
     this.averages = this.dateSplit.getAverages(this.workouts, 'day');
-    console.log(this.averages);
   }
 
 }

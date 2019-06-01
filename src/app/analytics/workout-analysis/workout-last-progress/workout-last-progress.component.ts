@@ -42,9 +42,6 @@ export class WorkoutLastProgressComponent implements OnInit {
     this.lastTwo = weekSplits.slice(-2, weekSplits.length)
     this.getDifferences();
     this.getPercentages()
-    console.log(this.lastTwo);
-    console.log(this.lastDifferences)
-    console.log(this.lastPercentages);
   }
 
   getDifferences(){

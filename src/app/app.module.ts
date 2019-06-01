@@ -31,6 +31,7 @@ import { WorkoutAnalysisAveragesComponent } from './analytics/workout-analysis/w
 import { WorkoutAnalysisMileAverageComponent } from './analytics/workout-analysis/workout-analysis-averages/workout-analysis-mile-average/workout-analysis-mile-average.component';
 import { WorkoutLastProgressComponent } from './analytics/workout-analysis/workout-last-progress/workout-last-progress.component';
 import { WorkoutTotalComponent } from './analytics/workout-analysis/workout-total/workout-total.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { WorkoutTotalComponent } from './analytics/workout-analysis/workout-tota
     WorkoutAnalysisMileAverageComponent,
     WorkoutLastProgressComponent,
     WorkoutTotalComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
