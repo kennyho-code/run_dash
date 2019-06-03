@@ -33,6 +33,7 @@ export class WorkoutTableComponent implements OnInit {
         let newDate = new Date(workout['creationdate']);
         workout['creationdate'] = this.dateSplit.getDayDate(newDate);
     }
+    this.workouts = this.workouts.reverse();
   }
 
   isSameMonthYear(dateStr, month, year){
@@ -43,12 +44,14 @@ export class WorkoutTableComponent implements OnInit {
   onDateSelected(e){
     this.workouts = this.originalWorkouts;
     this.workouts = this.workouts.filter(w=> this.isSameMonthYear(w.creationdate, e.month(), e.year()));
+    this.workouts = this.workouts.reverse();
   }
 
   onSplitsSelected(e){
     this.workouts = this.originalWorkouts;
     let splits = this.dateSplit.getDateSplits(this.workouts, e)
     this.workouts = this.dateSplit.transformSplits(splits)
+    this.workouts = this.workouts.reverse();
   }
 
 }
