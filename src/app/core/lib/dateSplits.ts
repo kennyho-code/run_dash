@@ -1,4 +1,3 @@
-import { Workout } from '../models/workout.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -110,7 +109,4 @@ export class DateSplits{
         }
         return total;
     }
-
-
-
 }

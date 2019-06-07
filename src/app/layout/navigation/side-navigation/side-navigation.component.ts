@@ -18,5 +18,5 @@ export class SideNavigationComponent implements OnInit {
   onClose(){
     this.closeSidenav.emit();
   }
-
+  
 }

@@ -6,7 +6,6 @@ export class WorkoutStats{
 
     constructor(private dateSplit: DateSplits){}
 
-
     getAverages(workouts, splitType){
         let splits = this.dateSplit.getDateSplits(workouts, splitType);
         let transformedSplits = this.dateSplit.transformSplits(splits);
@@ -25,10 +24,5 @@ export class WorkoutStats{
             'avgPace': avgDistance / avgDuration
         }
         return avgRow;
-
-
     }
-
-
-
 }

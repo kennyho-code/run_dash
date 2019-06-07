@@ -25,6 +25,7 @@ export class WorkoutLastProgressComponent implements OnInit {
     'duration': 0,
     'energyburned': 0
   }
+
   ngOnInit() {
     this.workoutService.workoutsChanged.subscribe(
       (workouts: Workout[]) => {
@@ -78,7 +79,4 @@ export class WorkoutLastProgressComponent implements OnInit {
     }
     return num > 0 ? 'green' : 'red'
   }
-
-
-
 }
